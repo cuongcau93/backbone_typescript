@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en" data-framework="backbonejs">
+
 	<head>
+	
 		<meta charset="utf-8">
 		<title>Backbone.js • TodoMVC</title>
-		<link rel="stylesheet" href="node_modules/todomvc-common/base.css">
+		<!--<link rel="stylesheet" href="node_modules/todomvc-common/base.css">-->
 		<!-- <link rel="stylesheet" href="node_modules/todomvc-app-css/index.css"> -->
 		<link rel="stylesheet" href="style.css">
 		<!-- Latest compiled and minified CSS -->
@@ -12,11 +14,31 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!-- Latest compiled JavaScript -->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
+		<!-- Prefixfree -->
+		<script src="http://thecodeplayer.com/uploads/js/prefixfree-1.0.7.js" type="text/javascript" type="text/javascript"></script>
+
 	</head>
+
 	<body>
 		
-		<div class="container">
+		<div class="menu">
 
+			<div class="btn-group btn-breadcrumb">
+				<a class="btn btn-primary">
+        			<span>Applicant Infomation DDD </span>
+				</a>
+			</div>
+			<div class="content">
+
+			</div>
+			<div>
+
+			</div>
+
+		</div>
+
+		<div class="container">
+			
 		</div>
 
 		<script src="node_modules/todomvc-common/base.js"></script>
@@ -24,9 +46,16 @@
 		<script src="node_modules/underscore/underscore.js"></script>
 		<script src="node_modules/backbone/backbone.js"></script>
 		<script src="node_modules/backbone.localstorage/backbone.localStorage.js"></script>
+
 		<script src="js/models/infomation.js"></script>
+		<script src="js/models/menuMeetingRequest/menuMeetingRequest.js"></script>
+
 		<script src="js/collections/infomations.js"></script> 
+		<script src="js/collections/menuMeetingRequests/menuMeetingRequests.js"></script> 
+		
 		<script src="js/views/app-view.js"></script>
+		<script src="js/views/menuMeetingRequest-view/menuMeetingRequest-view.js"></script>
+
 		<script src="js/app.js"></script>
 		
 	</body>

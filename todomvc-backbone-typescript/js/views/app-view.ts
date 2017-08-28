@@ -69,15 +69,14 @@ module app {
 		template: (...data: any[]) => string;
 		private static tpl = `
 				<div class="hero-unit">
-						<span class="glyphicon glyphicon-stop" style="color: <%= color %>;"></span>
-						<%= title %>
+						<div class="icon" style="width: 20px; height: 20px; background: <%= color %>; float: left; margin-right: 15px; "> </div>
+						<div style="float: left;" ><%= title %></div>
 				</div>
 			`
 
 		constructor(option?){	
 
-			this.tagName = 'div';
-			this.id = 'space';
+			this.className = 'space';
 			super(option);
 			console.log(option);
 			//this.collection = model;
@@ -142,7 +141,7 @@ module app {
 			});
 
 			return this;
-
+			
 		}
 	}
 }

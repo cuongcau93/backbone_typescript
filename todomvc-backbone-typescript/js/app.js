@@ -5,5 +5,6 @@ var app;
     'use strict';
     //new AppView();
     new app.InfomationsView();
+    new app.MenuMeetingRequestsView();
 })(app || (app = {}));
 //# sourceMappingURL=app.js.map

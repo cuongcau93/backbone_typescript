@@ -15,7 +15,7 @@ module app{
                 title: ''
             };
         };
-
+        
     }
 
 }

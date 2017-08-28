@@ -59,8 +59,7 @@ var app;
         __extends(InfomationView, _super);
         function InfomationView(option) {
             var _this = this;
-            _this.tagName = 'div';
-            _this.id = 'space';
+            _this.className = 'space';
             _this = _super.call(this, option) || this;
             console.log(option);
             //this.collection = model;
@@ -73,7 +72,7 @@ var app;
             this.$el.html(this.template(this.model.toJSON()));
             return this;
         };
-        InfomationView.tpl = "\n\t\t\t\t<div class=\"hero-unit\">\n\t\t\t\t\t\t<span class=\"glyphicon glyphicon-stop\" style=\"color: <%= color %>;\"></span>\n\t\t\t\t\t\t<%= title %>\n\t\t\t\t</div>\n\t\t\t";
+        InfomationView.tpl = "\n\t\t\t\t<div class=\"hero-unit\">\n\t\t\t\t\t\t<div class=\"icon\" style=\"width: 20px; height: 20px; background: <%= color %>; float: left; margin-right: 15px; \"> </div>\n\t\t\t\t\t\t<div style=\"float: left;\" ><%= title %></div>\n\t\t\t\t</div>\n\t\t\t";
         return InfomationView;
     }(Backbone.View));
     app.InfomationView = InfomationView;

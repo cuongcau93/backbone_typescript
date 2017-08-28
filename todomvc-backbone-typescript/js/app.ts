@@ -6,5 +6,5 @@ module app{
 	'use strict';
 
 	//new AppView();
-	new InfomationsView();
+	//new InfomationsView();
 }
