@@ -4,7 +4,8 @@ var app;
 (function (app) {
     'use strict';
     //new AppView();
+    //new InfomationsView();
     new app.InfomationsView();
-    new app.MenuMeetingRequestsView();
+    new app.MenuMeetingRequestView();
 })(app || (app = {}));
 //# sourceMappingURL=app.js.map

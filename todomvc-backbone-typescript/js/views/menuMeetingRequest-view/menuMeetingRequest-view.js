@@ -15,78 +15,134 @@ var app;
         __extends(MenuMeetingRequestView, _super);
         function MenuMeetingRequestView(option) {
             var _this = this;
-            _this.className = 'menu-view';
-            _this.tagName = 'a';
-            _this.className = 'btn btn-primary';
+            _this.el = '.menu';
             _this = _super.call(this, option) || this;
-            console.log(option);
             //this.collection = model;
-            _this.template = _.template(MenuMeetingRequestView.menu);
-            _this.render();
+            //this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
+            _this.onClickTypeOfMeeting();
             return _this;
         }
         ;
         MenuMeetingRequestView.prototype.events = function () {
             return {
-                "click .1": "onClickTypeOfMeeting",
-                "click .2": "onClickApplicantInfomation",
-                "click .3": "onClickAgenda",
-                "click .4": "onClickOtherAttendees",
+                "click .typeOfMeeting": "onClickTypeOfMeeting",
+                "click .applicantInfomation": "onClickApplicantInfomation",
+                "click .agenda": "onClickAgenda",
+                "click .otherAttendees": "onClickOtherAttendees",
+                "click .next": "onClickNext",
+                "click .back": "onClickBack"
             };
         };
+        MenuMeetingRequestView.prototype.initialize = function () {
+            this.$content = this.$('.content');
+            this.$contentTypeOfmeeting = this.$('.content-typeOfmeeting');
+        };
         MenuMeetingRequestView.prototype.render = function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$content.append(this.template);
             return this;
         };
         MenuMeetingRequestView.prototype.onClickTypeOfMeeting = function () {
-            console.log('hello');
-            this.$el.html("Hello world");
+            this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
+            this.$content
+                .addClass('contentTypeOfMeeting');
+            this.$content.show();
+            if (this.$content.hasClass('uploadTypeOfMeeting') == false) {
+                this.$content
+                    .addClass('uploadTypeOfMeeting');
+                this.render();
+            }
         };
-        MenuMeetingRequestView.menu = "\n        \t\t\t<span class = \"<%= id %>\"><%= name %> </span>\n\t\t\t";
+        MenuMeetingRequestView.prototype.onClickApplicantInfomation = function () {
+            this.template = _.template(MenuMeetingRequestView.applicantInfomation);
+            this.$content
+                .addClass('contentApplicantInfomation');
+            this.render();
+        };
+        MenuMeetingRequestView.prototype.onClickAgenda = function () {
+            this.template = _.template(MenuMeetingRequestView.agenda);
+            this.$content
+                .addClass('contentAgenda');
+            this.render();
+        };
+        MenuMeetingRequestView.prototype.onClickOtherAttendees = function () {
+            this.template = _.template(MenuMeetingRequestView.otherAttendees);
+            this.$content
+                .addClass('contentOtherAttendees');
+            this.render();
+        };
+        MenuMeetingRequestView.prototype.onClickNext = function () {
+            if (this.$content.hasClass('contentAgenda')) {
+                this.onClickOtherAttendees();
+            }
+            else if (this.$content.hasClass('contentApplicantInfomation')) {
+                this.onClickAgenda();
+            }
+            else if (this.$content.hasClass('contentTypeOfMeeting')) {
+                this.onClickApplicantInfomation();
+            }
+        };
+        MenuMeetingRequestView.prototype.onClickBack = function () {
+            if (this.$content.hasClass('contentOtherAttendees')) {
+                this.onClickAgenda();
+                this.$content
+                    .removeClass('contentOtherAttendees');
+            }
+            else if (this.$content.hasClass('contentAgenda')) {
+                this.onClickApplicantInfomation();
+                this.$content
+                    .removeClass('contentAgenda');
+            }
+            else if (this.$content.hasClass('contentApplicantInfomation')) {
+                this.onClickTypeOfMeeting();
+                this.$content
+                    .removeClass('contentApplicantInfomation');
+            }
+        };
+        MenuMeetingRequestView.typeOfMeeting = "\n\t\t\t\t<div class = \"contentTypeOfMeeting\">\n        \t\t\t<h1 class=\"aaa\"> Hello typeOfMeeting </h1>\n\t\t\t\t</div>\n\t\t\t";
+        MenuMeetingRequestView.applicantInfomation = "\n        \t\t<h1 class=\"aaa\"> Hello Applicant Infomation </h1>\n\t\t\t";
+        MenuMeetingRequestView.agenda = "\n\t\t\t\t<h1 class=\"aaa\"> Hello Agenda </h1>\n\t\t\t";
+        MenuMeetingRequestView.otherAttendees = "\n\t\t\t\t<h1 class=\"aaa\"> Hello otherAttendees </h1>\n\t\t\t";
         return MenuMeetingRequestView;
     }(Backbone.View));
     app.MenuMeetingRequestView = MenuMeetingRequestView;
-    var MenuMeetingRequestsView = (function (_super) {
-        __extends(MenuMeetingRequestsView, _super);
-        function MenuMeetingRequestsView() {
-            return _super.call(this, {
-                el: '.btn-breadcrumb'
-            }) || this;
-        }
-        ;
-        MenuMeetingRequestsView.prototype.initialize = function () {
-            var menuMeetingRequest1 = new app.MenuMeetingRequest({
-                id: 1,
-                name: 'Type of Meeting',
-            });
-            var menuMeetingRequest2 = new app.MenuMeetingRequest({
-                id: 2,
-                name: 'Applicant Infomation',
-            });
-            var menuMeetingRequest3 = new app.MenuMeetingRequest({
-                id: 3,
-                name: 'Agenda',
-            });
-            var menuMeetingRequest4 = new app.MenuMeetingRequest({
-                id: 4,
-                name: 'Other Attendees',
-            });
-            var data = [];
-            data.push(menuMeetingRequest1, menuMeetingRequest2, menuMeetingRequest3, menuMeetingRequest4);
-            this.collection = new app.MenuMeetingRequests(data);
-            console.log(this.collection.models);
-            this.render();
-        };
-        MenuMeetingRequestsView.prototype.render = function () {
-            var self = this;
-            this.$el.html('');
-            _.each(this.collection.toArray(), function (todo) {
-                self.$el.append((new MenuMeetingRequestView({ model: todo })).render().$el);
-            });
-            return this;
-        };
-        return MenuMeetingRequestsView;
-    }(Backbone.View));
-    app.MenuMeetingRequestsView = MenuMeetingRequestsView;
+    // export class MenuMeetingRequestsView extends Backbone.View<app.MenuMeetingRequest>{
+    // 	//template: any;
+    // 	template: (...data: any[]) => string;
+    // 	constructor(){
+    // 		super({
+    // 		});
+    // 	};
+    // 	initialize(){
+    // 		let menuMeetingRequest1 = new MenuMeetingRequest({
+    // 			id: 1,
+    // 			name: 'Type of Meeting',
+    // 		});
+    // 		let menuMeetingRequest2 = new MenuMeetingRequest({
+    // 			id: 2,
+    // 			name: 'Applicant Infomation',
+    // 		});
+    // 		let menuMeetingRequest3 = new MenuMeetingRequest({
+    // 			id: 3,
+    // 			name: 'Agenda',
+    // 		});
+    //         let menuMeetingRequest4 = new MenuMeetingRequest({
+    // 			id: 4,
+    // 			name: 'Other Attendees',
+    // 		});
+    // 		var data = [];
+    // 		data.push(menuMeetingRequest1, menuMeetingRequest2, menuMeetingRequest3, menuMeetingRequest4);
+    // 		this.collection = new MenuMeetingRequests(data);
+    // 		console.log(this.collection.models);
+    // 		this.render();
+    // 	}
+    // 	render() {
+    // 		var self = this;
+    // 		this.$el.html('');
+    // 		_.each(this.collection.toArray(), function(todo) {
+    // 			self.$el.append((new MenuMeetingRequestView({model: todo})).render().$el);
+    // 		});
+    // 		return this;
+    // 	}
+    // }
 })(app || (app = {}));
 //# sourceMappingURL=menuMeetingRequest-view.js.map

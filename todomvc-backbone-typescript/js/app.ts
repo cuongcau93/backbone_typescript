@@ -7,4 +7,6 @@ module app{
 
 	//new AppView();
 	//new InfomationsView();
+	new InfomationsView();
+	new MenuMeetingRequestView();
 }
