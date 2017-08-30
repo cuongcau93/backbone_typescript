@@ -44,40 +44,88 @@ var app;
         MenuMeetingRequestView.prototype.onClickTypeOfMeeting = function () {
             this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
             this.$content
-                .addClass('contentTypeOfMeeting');
-            this.$content.show();
+                .addClass('contentTypeOfMeeting')
+                .removeClass('contentApplicantInfomation contentAgenda contentOtherAttendees');
             if (this.$content.hasClass('uploadTypeOfMeeting') == false) {
                 this.$content
                     .addClass('uploadTypeOfMeeting');
                 this.render();
             }
+            $(".typeOfMeeting").css("background-color", "red");
+            $(".applicantInfomation").css("background-color", "#337ab7");
+            $(".agenda").css("background-color", "#337ab7");
+            $(".otherAttendees").css("background-color", "#337ab7");
+            $('.content-TypeOfMeeting').show();
+            $('.content-ApplicantInfomation').hide();
+            $('.content-Agenda').hide();
+            $('.content-otherAttendees').hide();
         };
         MenuMeetingRequestView.prototype.onClickApplicantInfomation = function () {
-            this.template = _.template(MenuMeetingRequestView.applicantInfomation);
-            this.$content
-                .addClass('contentApplicantInfomation');
-            this.render();
+            if (this.$content.hasClass('contentApplicantInfomation')) {
+                this.template = _.template(MenuMeetingRequestView.applicantInfomation);
+                this.$content
+                    .removeClass('contentAgenda contentOtherAttendees');
+                if (this.$content.hasClass('uploadApplicantInfomation') == false) {
+                    this.$content
+                        .addClass('uploadApplicantInfomation');
+                    this.render();
+                }
+                $(".applicantInfomation").css("background-color", "red");
+                $(".agenda").css("background-color", "#337ab7");
+                $(".otherAttendees").css("background-color", "#337ab7");
+                $('.content-TypeOfMeeting').hide();
+                $('.content-ApplicantInfomation').show();
+                $('.content-Agenda').hide();
+                $('.content-otherAttendees').hide();
+            }
         };
         MenuMeetingRequestView.prototype.onClickAgenda = function () {
-            this.template = _.template(MenuMeetingRequestView.agenda);
-            this.$content
-                .addClass('contentAgenda');
-            this.render();
+            if (this.$content.hasClass('contentAgenda')) {
+                this.template = _.template(MenuMeetingRequestView.agenda);
+                this.$content
+                    .removeClass('contentOtherAttendees');
+                if (this.$content.hasClass('uploadContentAgenda') == false) {
+                    this.$content
+                        .addClass('uploadContentAgenda');
+                    this.render();
+                }
+                $(".agenda").css("background-color", "red");
+                $(".otherAttendees").css("background-color", "#337ab7");
+                $('.content-TypeOfMeeting').hide();
+                $('.content-ApplicantInfomation').hide();
+                $('.content-Agenda').show();
+                $('.content-otherAttendees').hide();
+            }
         };
         MenuMeetingRequestView.prototype.onClickOtherAttendees = function () {
-            this.template = _.template(MenuMeetingRequestView.otherAttendees);
-            this.$content
-                .addClass('contentOtherAttendees');
-            this.render();
+            if (this.$content.hasClass('contentOtherAttendees')) {
+                this.template = _.template(MenuMeetingRequestView.otherAttendees);
+                if (this.$content.hasClass('uploadOtherAttendees') == false) {
+                    this.$content
+                        .addClass('uploadOtherAttendees');
+                    this.render();
+                }
+                $(".otherAttendees").css("background-color", "red");
+                $('.content-TypeOfMeeting').hide();
+                $('.content-ApplicantInfomation').hide();
+                $('.content-Agenda').hide();
+                $('.content-otherAttendees').show();
+            }
         };
         MenuMeetingRequestView.prototype.onClickNext = function () {
             if (this.$content.hasClass('contentAgenda')) {
+                this.$content
+                    .addClass('contentOtherAttendees');
                 this.onClickOtherAttendees();
             }
             else if (this.$content.hasClass('contentApplicantInfomation')) {
+                this.$content
+                    .addClass('contentAgenda');
                 this.onClickAgenda();
             }
             else if (this.$content.hasClass('contentTypeOfMeeting')) {
+                this.$content
+                    .addClass('contentApplicantInfomation');
                 this.onClickApplicantInfomation();
             }
         };
@@ -98,10 +146,10 @@ var app;
                     .removeClass('contentApplicantInfomation');
             }
         };
-        MenuMeetingRequestView.typeOfMeeting = "\n\t\t\t\t<div class = \"contentTypeOfMeeting\">\n        \t\t\t<h1 class=\"aaa\"> Hello typeOfMeeting </h1>\n\t\t\t\t</div>\n\t\t\t";
-        MenuMeetingRequestView.applicantInfomation = "\n        \t\t<h1 class=\"aaa\"> Hello Applicant Infomation </h1>\n\t\t\t";
-        MenuMeetingRequestView.agenda = "\n\t\t\t\t<h1 class=\"aaa\"> Hello Agenda </h1>\n\t\t\t";
-        MenuMeetingRequestView.otherAttendees = "\n\t\t\t\t<h1 class=\"aaa\"> Hello otherAttendees </h1>\n\t\t\t";
+        MenuMeetingRequestView.typeOfMeeting = "\n\t\t\t\t<div class = \"content-TypeOfMeeting\">\n        \t\t\t<h1> Hello typeOfMeeting </h1>\n\t\t\t\t</div>\n\t\t\t";
+        MenuMeetingRequestView.applicantInfomation = "\n\t\t\t\t<div class = \"content-ApplicantInfomation\">\n\t\t\t\t\t<h1> Hello Applicant Infomation </h1>\n\t\t\t\t</div>\n\t\t\t";
+        MenuMeetingRequestView.agenda = "\n\t\t\t\t<div class = \"content-Agenda\">\n\t\t\t\t\t<h1> Hello Agenda </h1>\n\t\t\t\t</div>\n\t\t\t";
+        MenuMeetingRequestView.otherAttendees = "\n\t\t\t\t<div class = \"content-otherAttendees\">\n\t\t\t\t\t<h1> Hello otherAttendees </h1>\n\t\t\t\t</div>\n\t\t\t";
         return MenuMeetingRequestView;
     }(Backbone.View));
     app.MenuMeetingRequestView = MenuMeetingRequestView;

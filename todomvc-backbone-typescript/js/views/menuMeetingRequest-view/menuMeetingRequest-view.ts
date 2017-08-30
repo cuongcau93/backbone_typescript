@@ -9,18 +9,24 @@ module app {
 		
 		template: (...data: any[]) => string;
 		private static typeOfMeeting = `
-				<div class = "contentTypeOfMeeting">
-        			<h1 class="aaa"> Hello typeOfMeeting </h1>
+				<div class = "content-TypeOfMeeting">
+        			<h1> Hello typeOfMeeting </h1>
 				</div>
 			`
 		private static applicantInfomation = `
-        		<h1 class="aaa"> Hello Applicant Infomation </h1>
+				<div class = "content-ApplicantInfomation">
+					<h1> Hello Applicant Infomation </h1>
+				</div>
 			`
 		private static agenda = `
-				<h1 class="aaa"> Hello Agenda </h1>
+				<div class = "content-Agenda">
+					<h1> Hello Agenda </h1>
+				</div>
 			`
 		private static otherAttendees = `
-				<h1 class="aaa"> Hello otherAttendees </h1>
+				<div class = "content-otherAttendees">
+					<h1> Hello otherAttendees </h1>
+				</div>
 			`
 
 		constructor(option?){	
@@ -59,47 +65,100 @@ module app {
 			this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
 			this.$content
 			 		.addClass('contentTypeOfMeeting')
-
-			this.$content.show();
-
+					.removeClass('contentApplicantInfomation contentAgenda contentOtherAttendees');
 			if(this.$content.hasClass('uploadTypeOfMeeting') == false){
 				this.$content
 			 		.addClass('uploadTypeOfMeeting');
 				this.render();
 			}
+
+			$(".typeOfMeeting").css("background-color", "red");
+			$(".applicantInfomation").css("background-color", "#337ab7");
+			$(".agenda").css("background-color", "#337ab7");
+			$(".otherAttendees").css("background-color", "#337ab7");
 			
+			$('.content-TypeOfMeeting').show();
+			$('.content-ApplicantInfomation').hide();
+			$('.content-Agenda').hide();
+			$('.content-otherAttendees').hide();
 
 		}
 
 		onClickApplicantInfomation(){
-				this.template = _.template(MenuMeetingRequestView.applicantInfomation);
-				this.$content
-				 		.addClass('contentApplicantInfomation')
-				this.render();
+				if(this.$content.hasClass('contentApplicantInfomation')){
+					this.template = _.template(MenuMeetingRequestView.applicantInfomation);
+					this.$content
+					 		.removeClass('contentAgenda contentOtherAttendees');
+					if(this.$content.hasClass('uploadApplicantInfomation') == false){
+						this.$content
+							 .addClass('uploadApplicantInfomation');
+						this.render();
+					}
+
+					$(".applicantInfomation").css("background-color", "red");
+					$(".agenda").css("background-color", "#337ab7");
+					$(".otherAttendees").css("background-color", "#337ab7");
+
+					$('.content-TypeOfMeeting').hide();
+					$('.content-ApplicantInfomation').show();
+					$('.content-Agenda').hide();
+					$('.content-otherAttendees').hide();
+				}
 		}
 
 		onClickAgenda(){
-			this.template = _.template(MenuMeetingRequestView.agenda);
-			this.$content
-			 		.addClass('contentAgenda')
-			this.render();
+			if(this.$content.hasClass('contentAgenda')){
+				this.template = _.template(MenuMeetingRequestView.agenda);
+				this.$content
+				 		.removeClass('contentOtherAttendees');
+				if(this.$content.hasClass('uploadContentAgenda') == false){
+					this.$content
+						 .addClass('uploadContentAgenda');
+					this.render();
+				}
+				$(".agenda").css("background-color", "red");
+				$(".otherAttendees").css("background-color", "#337ab7");
+				
+				$('.content-TypeOfMeeting').hide();
+				$('.content-ApplicantInfomation').hide();
+				$('.content-Agenda').show();
+				$('.content-otherAttendees').hide();
+			}
+
+			
 		}
 		
 		onClickOtherAttendees(){
-			this.template = _.template(MenuMeetingRequestView.otherAttendees);
-			this.$content
-			 		.addClass('contentOtherAttendees')
-			this.render();
+			if(this.$content.hasClass('contentOtherAttendees')){
+				this.template = _.template(MenuMeetingRequestView.otherAttendees);
+				if(this.$content.hasClass('uploadOtherAttendees') == false){
+					this.$content
+						 .addClass('uploadOtherAttendees');
+					this.render();
+				}
+				$(".otherAttendees").css("background-color", "red");
+				
+				$('.content-TypeOfMeeting').hide();
+				$('.content-ApplicantInfomation').hide();
+				$('.content-Agenda').hide();
+				$('.content-otherAttendees').show();
+			}
 		}
 
 		onClickNext(){
 			if(this.$content.hasClass('contentAgenda')){
+				this.$content
+				.addClass('contentOtherAttendees');
 				this.onClickOtherAttendees();
 			}
 			else if(this.$content.hasClass('contentApplicantInfomation')){
+				this.$content
+				.addClass('contentAgenda');
 				this.onClickAgenda();
 			}
 			else if(this.$content.hasClass('contentTypeOfMeeting')){
+				this.$content
+				.addClass('contentApplicantInfomation');
 				this.onClickApplicantInfomation();
 			}
 		}
@@ -123,8 +182,6 @@ module app {
 		}
 		
 	}
-
-
 
 
 
