@@ -14,11 +14,10 @@ var app;
     var MenuMeetingRequestView = (function (_super) {
         __extends(MenuMeetingRequestView, _super);
         function MenuMeetingRequestView(option) {
-            var _this = this;
-            _this.el = '.menu';
-            _this = _super.call(this, option) || this;
-            //this.collection = model;
-            //this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
+            var _this = _super.call(this, {
+                el: '.menu',
+            }) || this;
+            _this.$a = $('.content-TypeOfMeeting');
             _this.onClickTypeOfMeeting();
             return _this;
         }
@@ -35,7 +34,7 @@ var app;
         };
         MenuMeetingRequestView.prototype.initialize = function () {
             this.$content = this.$('.content');
-            this.$contentTypeOfmeeting = this.$('.content-typeOfmeeting');
+            this.$contentTypeOfmeeting = this.$('.content-TypeOfMeeting');
         };
         MenuMeetingRequestView.prototype.render = function () {
             this.$content.append(this.template);

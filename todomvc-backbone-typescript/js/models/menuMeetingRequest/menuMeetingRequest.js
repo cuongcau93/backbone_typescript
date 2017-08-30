@@ -21,6 +21,7 @@ var app;
             return {
                 id: null,
                 name: '',
+                currentSelected: false
             };
         };
         ;

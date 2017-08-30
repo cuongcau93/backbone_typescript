@@ -3,11 +3,13 @@ module app {
 	'use strict';
 
 	export class MenuMeetingRequestView extends Backbone.View<Backbone.Model>{
-		
+
 		$content: JQuery;
 		$contentTypeOfmeeting: JQuery;
-		
+		$a = $('.content-TypeOfMeeting');
+		 
 		template: (...data: any[]) => string;
+
 		private static typeOfMeeting = `
 				<div class = "content-TypeOfMeeting">
         			<h1> Hello typeOfMeeting </h1>
@@ -29,46 +31,51 @@ module app {
 				</div>
 			`
 
-		constructor(option?){	
+		constructor(option?) {
 
-			this.el = '.menu';
-			super(option);
-			//this.collection = model;
-			//this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
+			super({
+				el : '.menu',
+			});
 			this.onClickTypeOfMeeting();
 
 		};
 
-		events(): Backbone.EventsHash{
-			return{
-				"click .typeOfMeeting":"onClickTypeOfMeeting",
-				"click .applicantInfomation":"onClickApplicantInfomation",
-				"click .agenda":"onClickAgenda",
-				"click .otherAttendees":"onClickOtherAttendees",
-				"click .next":"onClickNext",
-				"click .back":"onClickBack"
+		events(): Backbone.EventsHash {
+
+			return {
+				"click .typeOfMeeting": "onClickTypeOfMeeting",
+				"click .applicantInfomation": "onClickApplicantInfomation",
+				"click .agenda": "onClickAgenda",
+				"click .otherAttendees": "onClickOtherAttendees",
+				"click .next": "onClickNext",
+				"click .back": "onClickBack"
 			}
+			
 		}
 
-		initialize(){
+		initialize() {
+			
 			this.$content = this.$('.content');
-			this.$contentTypeOfmeeting = this.$('.content-typeOfmeeting');
+			this.$contentTypeOfmeeting = this.$('.content-TypeOfMeeting');
+		
 		}
 
-		render(){
+		render() {
+
 			this.$content.append(this.template);
 			return this;
+		
 		}
 
-		onClickTypeOfMeeting(){
+		onClickTypeOfMeeting() {
 
 			this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
 			this.$content
-			 		.addClass('contentTypeOfMeeting')
-					.removeClass('contentApplicantInfomation contentAgenda contentOtherAttendees');
-			if(this.$content.hasClass('uploadTypeOfMeeting') == false){
+				.addClass('contentTypeOfMeeting')
+				.removeClass('contentApplicantInfomation contentAgenda contentOtherAttendees');
+			if (this.$content.hasClass('uploadTypeOfMeeting') == false) {
 				this.$content
-			 		.addClass('uploadTypeOfMeeting');
+					.addClass('uploadTypeOfMeeting');
 				this.render();
 			}
 
@@ -76,7 +83,7 @@ module app {
 			$(".applicantInfomation").css("background-color", "#337ab7");
 			$(".agenda").css("background-color", "#337ab7");
 			$(".otherAttendees").css("background-color", "#337ab7");
-			
+
 			$('.content-TypeOfMeeting').show();
 			$('.content-ApplicantInfomation').hide();
 			$('.content-Agenda').hide();
@@ -84,103 +91,115 @@ module app {
 
 		}
 
-		onClickApplicantInfomation(){
-				if(this.$content.hasClass('contentApplicantInfomation')){
-					this.template = _.template(MenuMeetingRequestView.applicantInfomation);
-					this.$content
-					 		.removeClass('contentAgenda contentOtherAttendees');
-					if(this.$content.hasClass('uploadApplicantInfomation') == false){
-						this.$content
-							 .addClass('uploadApplicantInfomation');
-						this.render();
-					}
+		onClickApplicantInfomation() {
 
-					$(".applicantInfomation").css("background-color", "red");
-					$(".agenda").css("background-color", "#337ab7");
-					$(".otherAttendees").css("background-color", "#337ab7");
-
-					$('.content-TypeOfMeeting').hide();
-					$('.content-ApplicantInfomation').show();
-					$('.content-Agenda').hide();
-					$('.content-otherAttendees').hide();
-				}
-		}
-
-		onClickAgenda(){
-			if(this.$content.hasClass('contentAgenda')){
-				this.template = _.template(MenuMeetingRequestView.agenda);
+			if (this.$content.hasClass('contentApplicantInfomation')) {
+				this.template = _.template(MenuMeetingRequestView.applicantInfomation);
 				this.$content
-				 		.removeClass('contentOtherAttendees');
-				if(this.$content.hasClass('uploadContentAgenda') == false){
+					.removeClass('contentAgenda contentOtherAttendees');
+				if (this.$content.hasClass('uploadApplicantInfomation') == false) {
 					this.$content
-						 .addClass('uploadContentAgenda');
+						.addClass('uploadApplicantInfomation');
 					this.render();
 				}
+
+				$(".applicantInfomation").css("background-color", "red");
+				$(".agenda").css("background-color", "#337ab7");
+				$(".otherAttendees").css("background-color", "#337ab7");
+
+				$('.content-TypeOfMeeting').hide();
+				$('.content-ApplicantInfomation').show();
+				$('.content-Agenda').hide();
+				$('.content-otherAttendees').hide();
+
+			}
+		}
+
+		onClickAgenda() {
+
+			if (this.$content.hasClass('contentAgenda')) {
+				this.template = _.template(MenuMeetingRequestView.agenda);
+				this.$content
+					.removeClass('contentOtherAttendees');
+				if (this.$content.hasClass('uploadContentAgenda') == false) {
+					this.$content
+						.addClass('uploadContentAgenda');
+					this.render();
+				}
+
 				$(".agenda").css("background-color", "red");
 				$(".otherAttendees").css("background-color", "#337ab7");
-				
+
 				$('.content-TypeOfMeeting').hide();
 				$('.content-ApplicantInfomation').hide();
 				$('.content-Agenda').show();
 				$('.content-otherAttendees').hide();
+
 			}
 
-			
 		}
-		
-		onClickOtherAttendees(){
-			if(this.$content.hasClass('contentOtherAttendees')){
+
+		onClickOtherAttendees() {
+
+			if (this.$content.hasClass('contentOtherAttendees')) {
 				this.template = _.template(MenuMeetingRequestView.otherAttendees);
-				if(this.$content.hasClass('uploadOtherAttendees') == false){
+				if (this.$content.hasClass('uploadOtherAttendees') == false) {
 					this.$content
-						 .addClass('uploadOtherAttendees');
+						.addClass('uploadOtherAttendees');
 					this.render();
 				}
 				$(".otherAttendees").css("background-color", "red");
-				
+
 				$('.content-TypeOfMeeting').hide();
 				$('.content-ApplicantInfomation').hide();
 				$('.content-Agenda').hide();
 				$('.content-otherAttendees').show();
+
 			}
 		}
 
-		onClickNext(){
-			if(this.$content.hasClass('contentAgenda')){
+		onClickNext() {
+			
+			if (this.$content.hasClass('contentAgenda')) {
 				this.$content
-				.addClass('contentOtherAttendees');
+					.addClass('contentOtherAttendees');
 				this.onClickOtherAttendees();
 			}
-			else if(this.$content.hasClass('contentApplicantInfomation')){
+			else if (this.$content.hasClass('contentApplicantInfomation')) {
 				this.$content
-				.addClass('contentAgenda');
+					.addClass('contentAgenda');
 				this.onClickAgenda();
 			}
-			else if(this.$content.hasClass('contentTypeOfMeeting')){
+			else if (this.$content.hasClass('contentTypeOfMeeting')) {
 				this.$content
-				.addClass('contentApplicantInfomation');
+					.addClass('contentApplicantInfomation');
 				this.onClickApplicantInfomation();
 			}
+			
 		}
 
-		onClickBack(){
-			if(this.$content.hasClass('contentOtherAttendees')){
+		onClickBack() {
+
+			if (this.$content.hasClass('contentOtherAttendees')) {
 				this.onClickAgenda();
 				this.$content
-							.removeClass('contentOtherAttendees');
+					.removeClass('contentOtherAttendees');
 			}
-			else if(this.$content.hasClass('contentAgenda')){
+
+			else if (this.$content.hasClass('contentAgenda')) {
 				this.onClickApplicantInfomation();
 				this.$content
-							.removeClass('contentAgenda');
+					.removeClass('contentAgenda');
 			}
-			else if(this.$content.hasClass('contentApplicantInfomation')){
+
+			else if (this.$content.hasClass('contentApplicantInfomation')) {
 				this.onClickTypeOfMeeting();
 				this.$content
-							.removeClass('contentApplicantInfomation')
+					.removeClass('contentApplicantInfomation')
 			}
+
 		}
-		
+
 	}
 
 
@@ -188,7 +207,7 @@ module app {
 
 
 	// export class MenuMeetingRequestsView extends Backbone.View<app.MenuMeetingRequest>{
-		
+
 	// 	//template: any;
 	// 	template: (...data: any[]) => string;
 
@@ -200,7 +219,7 @@ module app {
 	// 	};
 
 	// 	initialize(){
-			 
+
 	// 		let menuMeetingRequest1 = new MenuMeetingRequest({
 	// 			id: 1,
 	// 			name: 'Type of Meeting',
@@ -216,7 +235,7 @@ module app {
 	// 			name: 'Agenda',
 	// 		});
 
-    //         let menuMeetingRequest4 = new MenuMeetingRequest({
+	//         let menuMeetingRequest4 = new MenuMeetingRequest({
 	// 			id: 4,
 	// 			name: 'Other Attendees',
 	// 		});
@@ -231,17 +250,17 @@ module app {
 
 	// 	render() {
 	// 		var self = this;
-			
+
 	// 		this.$el.html('');
-			
+
 	// 		_.each(this.collection.toArray(), function(todo) {
 	// 			self.$el.append((new MenuMeetingRequestView({model: todo})).render().$el);
 	// 		});
 
 	// 		return this;
-			
+
 	// 	}
 
-	
+
 	// }
 }

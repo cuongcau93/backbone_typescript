@@ -5,6 +5,7 @@ module app{
     interface MenuMeetingRequestInterface {
         id: number  ;
         name: string;
+        currentSelected:boolean;
     };
 
     export class MenuMeetingRequest extends Backbone.Model {
@@ -13,6 +14,7 @@ module app{
             return{
                 id : null,
                 name:'',
+                currentSelected:false
             };
         };
 
