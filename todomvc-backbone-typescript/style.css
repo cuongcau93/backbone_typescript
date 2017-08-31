@@ -1,10 +1,23 @@
+body{
+  margin: 10px;
+  background: turquoise;
+}
+.home{
+  width: 975px;
+  height: auto;
+  margin: auto;
+  background: white;
+  padding: 4px;
+}
+
+
 .hero-unit{
-    background: #C0C0C0;
+    background: #cccccc;
 }
 
 .container{
     margin-top: 20px;
-    background: #C0C0C0;
+    background: #cccccc;
 }
 
 .space{
@@ -12,15 +25,6 @@
     margin-right: 5%;
     margin-bottom: 1%;
 }
-
-.menu{
-    margin: 77px;
-    margin-left: 376px;
-}
-/*
-.aaa{
-  display: none;
-}*/
 
 .flag {
   width: 160px;
@@ -51,18 +55,31 @@
 
 .arrow {
     float: left;
-    margin-right: -68px;
+    margin-right: -50px;
     font-size: 0;
 }
+
+.arrow-typeOfMeeting {
+    float: left;
+    margin-right: -50px;
+    font-size: 0;
+}
+
+.arrow-end{
+    float: left;
+    margin-right: -50px;
+    font-size: 0;
+}
+
 .inner-arrow {
-	  width:210px;
-	  height:80px;
+	  width:142px;
+	  height:58px;
     display: inline-block;
-	  background-color:green;
+	  background-color:#cccccc;
 	  text-align:center;
-	  font-size:20px;
-	  font-weight:bold;
-	  line-height:80px;
+	  font-size:14px;
+	  /*font-weight:bold;*/
+	  line-height:58px;
     vertical-align: middle;
 }
 
@@ -71,23 +88,89 @@
     display: inline-block;
 	  width:0;
   	height:0;
-	  border:40px solid transparent;
+	  border:29px solid transparent;
     vertical-align: middle;
 }
 
+
+
+.typeOfMeeting:after{
+	border-left-color: red;
+}
+
+.arrow-typeOfMeeting:after {
+	  content:'';
+    display: inline-block;
+	  width:0;
+  	height:0;
+	  border:29px solid transparent;
+    vertical-align: middle;
+}
+
+
+
+.arrow-end:before {
+	  content:'';
+    display: inline-block;
+	  width:0;
+  	height:0;
+	  border:29px solid transparent;
+    vertical-align: middle;
+}
+
+.arrow-typeOfMeeting:after {
+	border-left-color: #cccccc;
+}
+
+.activeTypeOfMeeting:after{
+  	border-left-color: #4c7baa;
+}
+
+
 .arrow:before {
-	border-top-color: green;
-	border-bottom-color: green;
-	border-right-color: green;
+	border-top-color: #cccccc;
+	border-bottom-color: #cccccc;
+	border-right-color: #cccccc;
+}
+
+.activeApplicantInfomation:before{
+  border-top-color: #4c7baa;
+	border-bottom-color: #4c7baa;
+	border-right-color: #4c7baa;
+}
+
+.activeAgenda:before{
+  border-top-color: #4c7baa;
+	border-bottom-color: #4c7baa;
+	border-right-color: #4c7baa;
+}
+
+.activeOtherAttendees:before{
+  border-top-color: #4c7baa;
+	border-bottom-color: #4c7baa;
+	border-right-color: #4c7baa;
+}
+
+.arrow-end:before {
+	border-top-color: #cccccc;
+	border-bottom-color: #cccccc;
+	border-right-color: #cccccc;
 }
 
 .arrow:after {
-	border-left-color: green;
+	border-left-color: #cccccc;
 }
 
+.activeApplicantInfomation:after{
+  border-left-color: #4c7baa;
+}
 
-
-
+.activeAgenda:after{
+  border-left-color: #4c7baa;
+}
+.activeOtherAttendees:after{
+    border-left-color: #4c7baa;
+}
 
 /** The Magic **/
 .btn-breadcrumb .btn:not(:last-child):after {

@@ -17,7 +17,6 @@ var app;
             var _this = _super.call(this, {
                 el: '.menu',
             }) || this;
-            _this.$a = $('.content-TypeOfMeeting');
             _this.onClickTypeOfMeeting();
             return _this;
         }
@@ -35,6 +34,9 @@ var app;
         MenuMeetingRequestView.prototype.initialize = function () {
             this.$content = this.$('.content');
             this.$contentTypeOfmeeting = this.$('.content-TypeOfMeeting');
+            this.$arrowApplicantInfomation = this.$('.arrow-applicantInfomation');
+            this.$arrowAgenda = this.$('.arrow-agenda');
+            this.$arrowOtherAttendees = this.$('.arrow-otherAttendees');
         };
         MenuMeetingRequestView.prototype.render = function () {
             this.$content.append(this.template);
@@ -43,17 +45,21 @@ var app;
         MenuMeetingRequestView.prototype.onClickTypeOfMeeting = function () {
             this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
             this.$content
-                .addClass('contentTypeOfMeeting')
+                .addClass('contentTypeOfMeeting activeTypeOfMeeting')
                 .removeClass('contentApplicantInfomation contentAgenda contentOtherAttendees');
+            this.$arrowAgenda.removeClass('activeAgenda');
+            this.$arrowOtherAttendees.removeClass('activeOtherAttendees');
+            this.$arrowApplicantInfomation.removeClass('activeApplicantInfomation');
             if (this.$content.hasClass('uploadTypeOfMeeting') == false) {
                 this.$content
                     .addClass('uploadTypeOfMeeting');
                 this.render();
             }
-            $(".typeOfMeeting").css("background-color", "red");
-            $(".applicantInfomation").css("background-color", "#337ab7");
-            $(".agenda").css("background-color", "#337ab7");
-            $(".otherAttendees").css("background-color", "#337ab7");
+            $(".typeOfMeeting").css({ "background-color": "#4c7baa", "color": "white" });
+            $(".arrow-start:after").css("border-left-color", "#005fbf");
+            $(".applicantInfomation").css({ "background-color": "#cccccc", "color": "black" });
+            $(".agenda").css({ "background-color": "#cccccc", "color": "black" });
+            $(".otherAttendees").css({ "background-color": "#cccccc", "color": "black" });
             $('.content-TypeOfMeeting').show();
             $('.content-ApplicantInfomation').hide();
             $('.content-Agenda').hide();
@@ -64,14 +70,17 @@ var app;
                 this.template = _.template(MenuMeetingRequestView.applicantInfomation);
                 this.$content
                     .removeClass('contentAgenda contentOtherAttendees');
+                this.$arrowApplicantInfomation.addClass('activeApplicantInfomation');
+                this.$arrowAgenda.removeClass('activeAgenda');
+                this.$arrowOtherAttendees.removeClass('activeOtherAttendees');
                 if (this.$content.hasClass('uploadApplicantInfomation') == false) {
                     this.$content
                         .addClass('uploadApplicantInfomation');
                     this.render();
                 }
-                $(".applicantInfomation").css("background-color", "red");
-                $(".agenda").css("background-color", "#337ab7");
-                $(".otherAttendees").css("background-color", "#337ab7");
+                $(".applicantInfomation").css({ "background-color": "#4c7baa", "color": "white" });
+                $(".agenda").css({ "background-color": "#cccccc", "color": "black" });
+                $(".otherAttendees").css({ "background-color": "#cccccc", "color": "black" });
                 $('.content-TypeOfMeeting').hide();
                 $('.content-ApplicantInfomation').show();
                 $('.content-Agenda').hide();
@@ -83,13 +92,16 @@ var app;
                 this.template = _.template(MenuMeetingRequestView.agenda);
                 this.$content
                     .removeClass('contentOtherAttendees');
+                this.$arrowOtherAttendees.removeClass('activeOtherAttendees');
+                this.$arrowAgenda.addClass('activeAgenda');
+                this.$arrowAgenda.addClass('activeAgenda');
                 if (this.$content.hasClass('uploadContentAgenda') == false) {
                     this.$content
                         .addClass('uploadContentAgenda');
                     this.render();
                 }
-                $(".agenda").css("background-color", "red");
-                $(".otherAttendees").css("background-color", "#337ab7");
+                $(".agenda").css({ "background-color": "#4c7baa", "color": "white" });
+                $(".otherAttendees").css({ "background-color": "#cccccc", "color": "black" });
                 $('.content-TypeOfMeeting').hide();
                 $('.content-ApplicantInfomation').hide();
                 $('.content-Agenda').show();
@@ -99,12 +111,13 @@ var app;
         MenuMeetingRequestView.prototype.onClickOtherAttendees = function () {
             if (this.$content.hasClass('contentOtherAttendees')) {
                 this.template = _.template(MenuMeetingRequestView.otherAttendees);
+                this.$arrowOtherAttendees.addClass('activeOtherAttendees');
                 if (this.$content.hasClass('uploadOtherAttendees') == false) {
                     this.$content
                         .addClass('uploadOtherAttendees');
                     this.render();
                 }
-                $(".otherAttendees").css("background-color", "red");
+                $(".otherAttendees").css({ "background-color": "#4c7baa", "color": "white" });
                 $('.content-TypeOfMeeting').hide();
                 $('.content-ApplicantInfomation').hide();
                 $('.content-Agenda').hide();
