@@ -76,13 +76,13 @@ module app {
 
 			this.template = _.template(MenuMeetingRequestView.typeOfMeeting);
 			this.$content
-				.addClass('contentTypeOfMeeting activeTypeOfMeeting')
+				.addClass('contentTypeOfMeeting')
 				.removeClass('contentApplicantInfomation contentAgenda contentOtherAttendees');
 
-			this.$arrowAgenda.removeClass('activeAgenda');
-			this.$arrowOtherAttendees.removeClass('activeOtherAttendees');
+			this.$arrowAgenda.removeClass('active');
+			this.$arrowOtherAttendees.removeClass('active');
   			
-			this.$arrowApplicantInfomation.removeClass('activeApplicantInfomation');
+			this.$arrowApplicantInfomation.removeClass('active');
 
 			if (this.$content.hasClass('uploadTypeOfMeeting') == false) {
 				this.$content
@@ -110,9 +110,9 @@ module app {
 				this.template = _.template(MenuMeetingRequestView.applicantInfomation);
 				this.$content
 					.removeClass('contentAgenda contentOtherAttendees');
-  				this.$arrowApplicantInfomation.addClass('activeApplicantInfomation');
-				this.$arrowAgenda.removeClass('activeAgenda');
-				this.$arrowOtherAttendees.removeClass('activeOtherAttendees');
+  				this.$arrowApplicantInfomation.addClass('active');
+				this.$arrowAgenda.removeClass('active');
+				this.$arrowOtherAttendees.removeClass('active');
 
 				if (this.$content.hasClass('uploadApplicantInfomation') == false) {
 					this.$content
@@ -120,9 +120,9 @@ module app {
 					this.render();
 				}
 
-				$(".applicantInfomation").css({"background-color": "#4c7baa", "color":"white"});
-				$(".agenda").css({"background-color": "#cccccc", "color":"black"});
-				$(".otherAttendees").css({"background-color": "#cccccc", "color":"black"});
+				// $(".applicantInfomation").css({"background-color": "#4c7baa", "color":"white"});
+				// $(".agenda").css({"background-color": "#cccccc", "color":"black"});
+				// $(".otherAttendees").css({"background-color": "#cccccc", "color":"black"});
 
 				$('.content-TypeOfMeeting').hide();
 				$('.content-ApplicantInfomation').show();
@@ -138,9 +138,8 @@ module app {
 				this.template = _.template(MenuMeetingRequestView.agenda);
 				this.$content
 					.removeClass('contentOtherAttendees');
-				this.$arrowOtherAttendees.removeClass('activeOtherAttendees');
-			 	this.$arrowAgenda.addClass('activeAgenda');
-				this.$arrowAgenda.addClass('activeAgenda');
+				this.$arrowOtherAttendees.removeClass('active');
+			 	this.$arrowAgenda.addClass('active');
 				if (this.$content.hasClass('uploadContentAgenda') == false) {
 					this.$content
 						.addClass('uploadContentAgenda');
@@ -163,7 +162,7 @@ module app {
 
 			if (this.$content.hasClass('contentOtherAttendees')) {
 				this.template = _.template(MenuMeetingRequestView.otherAttendees);
-				this.$arrowOtherAttendees.addClass('activeOtherAttendees');
+				this.$arrowOtherAttendees.addClass('active');
 				if (this.$content.hasClass('uploadOtherAttendees') == false) {
 					this.$content
 						.addClass('uploadOtherAttendees');

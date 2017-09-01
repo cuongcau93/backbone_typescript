@@ -83,6 +83,7 @@ body{
     vertical-align: middle;
 }
 
+
 .arrow:before, .arrow:after {
 	  content:'';
     display: inline-block;
@@ -133,23 +134,12 @@ body{
 	border-right-color: #cccccc;
 }
 
-.activeApplicantInfomation:before{
+.active:before{
   border-top-color: #4c7baa;
 	border-bottom-color: #4c7baa;
 	border-right-color: #4c7baa;
 }
 
-.activeAgenda:before{
-  border-top-color: #4c7baa;
-	border-bottom-color: #4c7baa;
-	border-right-color: #4c7baa;
-}
-
-.activeOtherAttendees:before{
-  border-top-color: #4c7baa;
-	border-bottom-color: #4c7baa;
-	border-right-color: #4c7baa;
-}
 
 .arrow-end:before {
 	border-top-color: #cccccc;
@@ -161,16 +151,11 @@ body{
 	border-left-color: #cccccc;
 }
 
-.activeApplicantInfomation:after{
+.active:after{
   border-left-color: #4c7baa;
 }
 
-.activeAgenda:after{
-  border-left-color: #4c7baa;
-}
-.activeOtherAttendees:after{
-    border-left-color: #4c7baa;
-}
+
 
 /** The Magic **/
 .btn-breadcrumb .btn:not(:last-child):after {
