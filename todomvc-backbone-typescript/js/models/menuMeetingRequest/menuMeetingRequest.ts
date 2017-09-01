@@ -20,4 +20,14 @@ module app{
 
     }
 
+    export class Vehicle extends Backbone.Model{
+            
+            summary() {
+                return 'Vehicles arefor travelling';
+            }
+    };
+    
+    var l = new Vehicle();
+    console.log(l.summary());
+
 }

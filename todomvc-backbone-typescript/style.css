@@ -4,7 +4,7 @@ body{
 }
 .home{
   width: 975px;
-  height: auto;
+  height: 800px;
   margin: auto;
   background: white;
   padding: 4px;
@@ -12,45 +12,18 @@ body{
 
 
 .hero-unit{
-    background: #cccccc;
+    background: #9B9B9B;
 }
 
 .container{
     margin-top: 20px;
-    background: #cccccc;
+    background: #9B9B9B;
 }
 
 .space{
     float: left;
     margin-right: 5%;
     margin-bottom: 1%;
-}
-
-.flag {
-  width: 160px;
-  height: 50px;
-  margin: 0 auto;
-  padding-top: 15px;
-  position: relative; 
-  background: hotpink;
-  color: white;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.flag:after {
-  content: ' ';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 0;
-  border-left: 29px solid white;
-  border-top: 24px solid transparent;
-  border-bottom: 25px solid transparent;
-
 }
 
 .arrow {
@@ -75,10 +48,10 @@ body{
 	  width:142px;
 	  height:58px;
     display: inline-block;
-	  background-color:#cccccc;
+	  background-color:#9B9B9B;
 	  text-align:center;
 	  font-size:14px;
-	  /*font-weight:bold;*/
+	  font-weight:lighter;
 	  line-height:58px;
     vertical-align: middle;
 }
@@ -109,7 +82,6 @@ body{
 }
 
 
-
 .arrow-end:before {
 	  content:'';
     display: inline-block;
@@ -120,7 +92,7 @@ body{
 }
 
 .arrow-typeOfMeeting:after {
-	border-left-color: #cccccc;
+	border-left-color: #9B9B9B;
 }
 
 .activeTypeOfMeeting:after{
@@ -129,9 +101,9 @@ body{
 
 
 .arrow:before {
-	border-top-color: #cccccc;
-	border-bottom-color: #cccccc;
-	border-right-color: #cccccc;
+	border-top-color: #9B9B9B;
+	border-bottom-color: #9B9B9B;
+	border-right-color: #9B9B9B;
 }
 
 .active:before{
@@ -140,145 +112,16 @@ body{
 	border-right-color: #4c7baa;
 }
 
-
 .arrow-end:before {
-	border-top-color: #cccccc;
-	border-bottom-color: #cccccc;
-	border-right-color: #cccccc;
+	border-top-color: #9B9B9B;
+	border-bottom-color: #9B9B9B;
+	border-right-color: #9B9B9B;
 }
 
 .arrow:after {
-	border-left-color: #cccccc;
+	border-left-color: #9B9B9B;
 }
 
 .active:after{
   border-left-color: #4c7baa;
-}
-
-
-
-/** The Magic **/
-.btn-breadcrumb .btn:not(:last-child):after {
-  content: " ";
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
-  border-left: 10px solid white;
-  position: absolute;
-  top: 50%;
-  margin-top: -17px;
-  left: 100%;
-  z-index: 3;
-}
-.btn-breadcrumb .btn:not(:last-child):before {
-  content: " ";
-  display: block;
-  width: 0;
-  height: 0;
-  border-top: 17px solid transparent;
-  border-bottom: 17px solid transparent;
-  border-left: 10px solid rgb(173, 173, 173);
-  position: absolute;
-  top: 50%;
-  margin-top: -17px;
-  margin-left: 1px;
-  left: 100%;
-  z-index: 3;
-}
-
-/** The Spacing **/
-.btn-breadcrumb .btn {
-  padding:6px 12px 6px 24px;
-}
-.btn-breadcrumb .btn:first-child {
-  padding:6px 6px 6px 10px;
-}
-.btn-breadcrumb .btn:last-child {
-  padding:6px 18px 6px 24px;
-}
-
-/** Default button **/
-.btn-breadcrumb .btn.btn-default:not(:last-child):after {
-  border-left: 10px solid #fff;
-}
-.btn-breadcrumb .btn.btn-default:not(:last-child):before {
-  border-left: 10px solid #ccc;
-}
-.btn-breadcrumb .btn.btn-default:hover:not(:last-child):after {
-  border-left: 10px solid #ebebeb;
-}
-.btn-breadcrumb .btn.btn-default:hover:not(:last-child):before {
-  border-left: 10px solid #adadad;
-}
-
-/** Primary button **/
-.btn-breadcrumb .btn.btn-primary:not(:last-child):after {
-  border-left: 10px solid #428bca;
-}
-.btn-breadcrumb .btn.btn-primary:not(:last-child):before {
-  border-left: 10px solid #357ebd;
-}
-.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):after {
-  border-left: 10px solid #3276b1;
-}
-.btn-breadcrumb .btn.btn-primary:hover:not(:last-child):before {
-  border-left: 10px solid #285e8e;
-}
-
-/** Success button **/
-.btn-breadcrumb .btn.btn-success:not(:last-child):after {
-  border-left: 10px solid #5cb85c;
-}
-.btn-breadcrumb .btn.btn-success:not(:last-child):before {
-  border-left: 10px solid #4cae4c;
-}
-.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
-  border-left: 10px solid #47a447;
-}
-.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
-  border-left: 10px solid #398439;
-}
-
-/** Danger button **/
-.btn-breadcrumb .btn.btn-danger:not(:last-child):after {
-  border-left: 10px solid #d9534f;
-}
-.btn-breadcrumb .btn.btn-danger:not(:last-child):before {
-  border-left: 10px solid #d43f3a;
-}
-.btn-breadcrumb .btn.btn-danger:hover:not(:last-child):after {
-  border-left: 10px solid #d2322d;
-}
-.btn-breadcrumb .btn.btn-danger:hover:not(:last-child):before {
-  border-left: 10px solid #ac2925;
-}
-
-/** Warning button **/
-.btn-breadcrumb .btn.btn-warning:not(:last-child):after {
-  border-left: 10px solid #f0ad4e;
-}
-.btn-breadcrumb .btn.btn-warning:not(:last-child):before {
-  border-left: 10px solid #eea236;
-}
-.btn-breadcrumb .btn.btn-warning:hover:not(:last-child):after {
-  border-left: 10px solid #ed9c28;
-}
-.btn-breadcrumb .btn.btn-warning:hover:not(:last-child):before {
-  border-left: 10px solid #d58512;
-}
-
-/** Info button **/
-.btn-breadcrumb .btn.btn-info:not(:last-child):after {
-  border-left: 10px solid #5bc0de;
-}
-.btn-breadcrumb .btn.btn-info:not(:last-child):before {
-  border-left: 10px solid #46b8da;
-}
-.btn-breadcrumb .btn.btn-info:hover:not(:last-child):after {
-  border-left: 10px solid #39b3d7;
-}
-.btn-breadcrumb .btn.btn-info:hover:not(:last-child):before {
-  border-left: 10px solid #269abc;
 }

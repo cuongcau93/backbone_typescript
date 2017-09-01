@@ -28,5 +28,19 @@ var app;
         return MenuMeetingRequest;
     }(Backbone.Model));
     app.MenuMeetingRequest = MenuMeetingRequest;
+    var Vehicle = (function (_super) {
+        __extends(Vehicle, _super);
+        function Vehicle() {
+            return _super !== null && _super.apply(this, arguments) || this;
+        }
+        Vehicle.prototype.summary = function () {
+            return 'Vehicles arefor travelling';
+        };
+        return Vehicle;
+    }(Backbone.Model));
+    app.Vehicle = Vehicle;
+    ;
+    var l = new Vehicle();
+    console.log(l.summary());
 })(app || (app = {}));
 //# sourceMappingURL=menuMeetingRequest.js.map

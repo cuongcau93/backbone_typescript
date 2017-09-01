@@ -81,7 +81,6 @@ module app {
 
 			this.$arrowAgenda.removeClass('active');
 			this.$arrowOtherAttendees.removeClass('active');
-  			
 			this.$arrowApplicantInfomation.removeClass('active');
 
 			if (this.$content.hasClass('uploadTypeOfMeeting') == false) {
@@ -91,11 +90,10 @@ module app {
 			}
 
 			$(".typeOfMeeting").css({"background-color": "#4c7baa", "color":"white"});
-			$(".arrow-start:after").css("border-left-color","#005fbf");
 
-			$(".applicantInfomation").css({"background-color": "#cccccc", "color":"black"});
-			$(".agenda").css({"background-color": "#cccccc", "color":"black"});
-			$(".otherAttendees").css({"background-color": "#cccccc", "color":"black"});
+			$(".applicantInfomation").css({"background-color": "#9B9B9B", "color":"black"});
+			$(".agenda").css({"background-color": "#9B9B9B", "color":"black"});
+			$(".otherAttendees").css({"background-color": "#9B9B9B", "color":"black"});
 
 			$('.content-TypeOfMeeting').show();
 			$('.content-ApplicantInfomation').hide();
@@ -120,9 +118,9 @@ module app {
 					this.render();
 				}
 
-				// $(".applicantInfomation").css({"background-color": "#4c7baa", "color":"white"});
-				// $(".agenda").css({"background-color": "#cccccc", "color":"black"});
-				// $(".otherAttendees").css({"background-color": "#cccccc", "color":"black"});
+				$(".applicantInfomation").css({"background-color": "#4c7baa", "color":"white"});
+				$(".agenda").css({"background-color": "#9B9B9B", "color":"black"});
+				$(".otherAttendees").css({"background-color": "#9B9B9B", "color":"black"});
 
 				$('.content-TypeOfMeeting').hide();
 				$('.content-ApplicantInfomation').show();
@@ -147,7 +145,7 @@ module app {
 				}
 
 				$(".agenda").css({"background-color": "#4c7baa", "color":"white"});
-				$(".otherAttendees").css({"background-color": "#cccccc", "color":"black"});
+				$(".otherAttendees").css({"background-color": "#9B9B9B", "color":"black"});
 
 				$('.content-TypeOfMeeting').hide();
 				$('.content-ApplicantInfomation').hide();
