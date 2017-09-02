@@ -56,9 +56,10 @@ var app;
                 this.render();
             }
             $(".typeOfMeeting").css({ "background-color": "#4c7baa", "color": "white" });
-            $(".applicantInfomation").css({ "background-color": "#9B9B9B", "color": "black" });
-            $(".agenda").css({ "background-color": "#9B9B9B", "color": "black" });
-            $(".otherAttendees").css({ "background-color": "#9B9B9B", "color": "black" });
+            $(".arrow-start:after").css("border-left-color", "#005fbf");
+            $(".applicantInfomation").css({ "background-color": "#cccccc", "color": "black" });
+            $(".agenda").css({ "background-color": "#cccccc", "color": "black" });
+            $(".otherAttendees").css({ "background-color": "#cccccc", "color": "black" });
             $('.content-TypeOfMeeting').show();
             $('.content-ApplicantInfomation').hide();
             $('.content-Agenda').hide();
@@ -99,7 +100,7 @@ var app;
                     this.render();
                 }
                 $(".agenda").css({ "background-color": "#4c7baa", "color": "white" });
-                $(".otherAttendees").css({ "background-color": "#9B9B9B", "color": "black" });
+                $(".otherAttendees").css({ "background-color": "#cccccc", "color": "black" });
                 $('.content-TypeOfMeeting').hide();
                 $('.content-ApplicantInfomation').hide();
                 $('.content-Agenda').show();
@@ -156,10 +157,10 @@ var app;
                     .removeClass('contentApplicantInfomation');
             }
         };
-        MenuMeetingRequestView.typeOfMeeting = "\n\t\t\t\t<div class = \"content-TypeOfMeeting\">\n        \t\t\t<h1> Hello typeOfMeeting </h1>\n\t\t\t\t</div>\n\t\t\t";
-        MenuMeetingRequestView.applicantInfomation = "\n\t\t\t\t<div class = \"content-ApplicantInfomation\">\n\t\t\t\t\t<h1> Hello Applicant Infomation </h1>\n\t\t\t\t</div>\n\t\t\t";
-        MenuMeetingRequestView.agenda = "\n\t\t\t\t<div class = \"content-Agenda\">\n\t\t\t\t\t<h1> Hello Agenda </h1>\n\t\t\t\t</div>\n\t\t\t";
-        MenuMeetingRequestView.otherAttendees = "\n\t\t\t\t<div class = \"content-otherAttendees\">\n\t\t\t\t\t<h1> Hello otherAttendees </h1>\n\t\t\t\t</div>\n\t\t\t";
+        MenuMeetingRequestView.typeOfMeeting = "\n\t\t\t\t\t<div class = \"content-TypeOfMeeting\">\n\t\t\t\t\t\t<h1> Hello typeOfMeeting </h1>\n\t\t\t\t\t</div>\n\t\t\t\t";
+        MenuMeetingRequestView.applicantInfomation = "\n\t\t\t\t\t<div class = \"content-ApplicantInfomation\">\n\t\t\t\t\t\t<h1> Hello Applicant Infomation </h1>\n\t\t\t\t\t</div>\n\t\t\t\t";
+        MenuMeetingRequestView.agenda = "\n\t\t\t\t\t<div class = \"content-Agenda\">\n\t\t\t\t\t\t<h1> Hello Agenda </h1>\n\t\t\t\t\t</div>\n\t\t\t\t";
+        MenuMeetingRequestView.otherAttendees = "\n\t\t\t\t\t<div class = \"content-otherAttendees\">\n\t\t\t\t\t\t<h1> Hello otherAttendees </h1>\n\t\t\t\t\t</div>\n\t\t\t\t";
         return MenuMeetingRequestView;
     }(Backbone.View));
     app.MenuMeetingRequestView = MenuMeetingRequestView;
