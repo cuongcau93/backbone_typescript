@@ -120,9 +120,9 @@ module app {
 					this.render();
 				}
 
-				// $(".applicantInfomation").css({"background-color": "#4c7baa", "color":"white"});
-				// $(".agenda").css({"background-color": "#cccccc", "color":"black"});
-				// $(".otherAttendees").css({"background-color": "#cccccc", "color":"black"});
+				$(".applicantInfomation").css({"background-color": "#4c7baa", "color":"white"});
+				$(".agenda").css({"background-color": "#cccccc", "color":"black"});
+				$(".otherAttendees").css({"background-color": "#cccccc", "color":"black"});
 
 				$('.content-TypeOfMeeting').hide();
 				$('.content-ApplicantInfomation').show();
